@@ -8,7 +8,7 @@ export default function Call({ navigation }) {
         onPress={() => navigation.navigate("Home")}
         style={{ fontSize: 26, fontWeight: "bold" }}
       >
-        Settings Screen
+        Emergency Calls
       </Text>
     </View>
   );

@@ -1,11 +1,20 @@
 import * as React from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { useFonts } from 'expo-font';
 // import Slider from "@react-native-community/slider";
 import { Slider } from "react-native";
 
+
 export default function Menu({ navigation }) {
   // const []
+  const [loaded] = useFonts({
+    'PTSans-Bold': require('../../assets/fonts/PTSans-Bold.ttf'),
+    'PTSans-Regular': require('../../assets/fonts/PTSans-Regular.ttf'),
+  });
+  if (!loaded) {
+    return null;
+  }
   const { width, height } = Dimensions.get("screen");
   return (
     <View
@@ -14,29 +23,30 @@ export default function Menu({ navigation }) {
         alignItems: "center",
         justifyContent: "center",
         margin: -70,
+        fontFamily: "PTSans-Regular",
       }}
     >
       <View style={styles.container}>
         <Image
           source={require("../../assets/logo.png")}
-          style={{ width: 80, height: 115 }}
+          style={{ width: 70, height: 100 }}
         />
-        <Text style={{ fontSize: 25, margin: 15 }}>
+        <Text style={{ fontSize: 23, margin: 15, marginLeft: -25}}>
           How is your pain today?
         </Text>
         <Text
-          style={{ fontSize: 15, color: "#484747" }}
+          style={{ fontSize: 13, color: "#484747", marginLeft: -25 }}
           onPress={() => alert('This is the "Home" screen.')}
         >
           Kindly use the pain assesment scale below
         </Text>
-        <Text style={{ marginTop: 40, fontSize: 28, color: "#64BC9F" }}>
-          1 2 3 4 5 6 7 8 9 10
+        <Text style={{ marginTop: 15, fontSize: 18, color: "#64BC9F" }}>
+          1    2    3    4     5    6    7    8    9    10
         </Text>
         <Slider
           style={{
             width: 200,
-            height: 70,
+            height: 40,
             transform: [{ scaleX: 2 }, { scaleY: 2 }],
           }}
           minimumValue={0}
@@ -58,15 +68,7 @@ export default function Menu({ navigation }) {
           }}
         >
           <Image
-            source={require("../../assets/1.jpg")}
-            style={{ marginRight: 18, width: "15%", height: 60 }}
-          />
-          <Image
-            source={require("../../assets/3.jpg")}
-            style={{ marginRight: 18, width: "15%", height: 60 }}
-          />
-          <Image
-            source={require("../../assets/5.jpg")}
+            source={require("../../assets/10.jpg")}
             style={{ marginRight: 18, width: "15%", height: 60 }}
           />
           <Image
@@ -74,7 +76,15 @@ export default function Menu({ navigation }) {
             style={{ marginRight: 18, width: "15%", height: 60 }}
           />
           <Image
-            source={require("../../assets/10.jpg")}
+            source={require("../../assets/5.jpg")}
+            style={{ marginRight: 18, width: "15%", height: 60 }}
+          />
+          <Image
+            source={require("../../assets/3.jpg")}
+            style={{ marginRight: 18, width: "15%", height: 60 }}
+          />
+          <Image
+            source={require("../../assets/1.jpg")}
             style={{ width: "15%", height: 60 }}
           />
         </View>
@@ -91,7 +101,7 @@ export default function Menu({ navigation }) {
             paddingRight: 30,
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>Mild Pain</Text>
+          <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>Mild Pain</Text>
           <Text style={{ color: "#478772" }}>
             Can do most activities with rest periods
           </Text>
@@ -130,6 +140,7 @@ export default function Menu({ navigation }) {
               paddingLeft: 30,
               paddingRight: 30,
             }}
+            onStartShouldSetResponder={() => {alert('Clicked Nausea')}}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>Nausea</Text>
           </View>
@@ -146,6 +157,7 @@ export default function Menu({ navigation }) {
               paddingLeft: 30,
               paddingRight: 30,
             }}
+            onStartShouldSetResponder={() => {alert('Clicked Vomiting')}}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>Vomiting</Text>
           </View>
@@ -175,6 +187,7 @@ export default function Menu({ navigation }) {
               paddingLeft: 8,
               paddingRight: 8,
             }}
+            onStartShouldSetResponder={() => {alert('Clicked Hyper Acidity')}}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>
               Hyper Acidity
@@ -193,10 +206,28 @@ export default function Menu({ navigation }) {
               paddingLeft: 30,
               paddingRight: 30,
             }}
+            onStartShouldSetResponder={() => {alert('Bleeding')}}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>Bleeding</Text>
           </View>
         </View>
+        <View
+            elevation={5}
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "#478772",
+              borderRadius: 40,
+              marginTop: 20,
+              width: 160,
+              padding: 10,
+              paddingLeft: 30,
+              paddingRight: 30,
+            }}
+            onStartShouldSetResponder={() => {alert('Submitted')}}
+          >
+            <Text style={{ fontSize: 20}}>Submit</Text>
+          </View>
         <StatusBar style="auto" />
       </View>
     </View>

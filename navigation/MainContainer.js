@@ -23,12 +23,12 @@ function MainContainer() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName={Menu}
-        // tabBarOptions={{
-        //   activeTintColor: "376858",
-        //   inactiveTintColor: "grey",
-        //   labelStyle: { paddingBottom: 0, fontSize: 0 },
-        //   style: { height: 200 },
-        // }}
+        tabBarOptions={{
+          activeTintColor: "#DBEFE9",
+          inactiveTintColor: "#64BC9F",
+          // labelStyle: { paddingBottom: 0, fontSize: 0 },
+          style: { height: 200 },
+        }}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
