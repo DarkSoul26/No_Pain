@@ -2,6 +2,10 @@
 ## Problem Statement:
 Create a react native application according to the following figma link for **_Innothoughts System_** :
 - [Figma Link](https://www.figma.com/file/ECu6iChAumA32Fu1SXbgEj/Pain-score?node-id=0%3A1&t=QjrLdGVWL6VKsIfv-1)
+
+## Deployed link:
+- exp://exp.host/@darksoul26/NoPain
+
 ## Screenshots of the application:
 
 1. <p align="center"><img align="center" height="400em" src="https://user-images.githubusercontent.com/60578902/210117341-ba90194b-7680-420b-b698-0917aa160cb4.jpg" /></p>
