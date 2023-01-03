@@ -3,7 +3,7 @@
 Create a react native application according to the following figma link for **_Innothoughts System_** :
 - [Figma Link](https://www.figma.com/file/ECu6iChAumA32Fu1SXbgEj/Pain-score?node-id=0%3A1&t=QjrLdGVWL6VKsIfv-1)
 
-## Deployed link:
+## Deployed link on expo:
 - exp://exp.host/@darksoul26/NoPain
 
 ## Screenshots of the application:
