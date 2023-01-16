@@ -1,21 +1,23 @@
 import * as React from "react";
+import { useState } from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useFonts } from 'expo-font';
-// import Slider from "@react-native-community/slider";
-import { Slider } from "react-native";
-
+import { useFonts } from "expo-font";
+import Slider from "@react-native-community/slider";
+// import { Slider } from "react-native";
 
 export default function Menu({ navigation }) {
   // const []
+  const [image, setImage] = useState(6);
   const [loaded] = useFonts({
-    'PTSans-Bold': require('../../assets/fonts/PTSans-Bold.ttf'),
-    'PTSans-Regular': require('../../assets/fonts/PTSans-Regular.ttf'),
+    "PTSans-Bold": require("../../assets/fonts/PTSans-Bold.ttf"),
+    "PTSans-Regular": require("../../assets/fonts/PTSans-Regular.ttf"),
   });
   if (!loaded) {
     return null;
   }
   const { width, height } = Dimensions.get("screen");
+
   return (
     <View
       style={{
@@ -31,7 +33,7 @@ export default function Menu({ navigation }) {
           source={require("../../assets/logo.png")}
           style={{ width: 70, height: 100 }}
         />
-        <Text style={{ fontSize: 23, margin: 15, marginLeft: -25}}>
+        <Text style={{ fontSize: 23, margin: 15, marginLeft: -25 }}>
           How is your pain today?
         </Text>
         <Text
@@ -41,21 +43,27 @@ export default function Menu({ navigation }) {
           Kindly use the pain assesment scale below
         </Text>
         <Text style={{ marginTop: 15, fontSize: 18, color: "#64BC9F" }}>
-          1    2    3    4     5    6    7    8    9    10
+          1    2    3    4    5    6    7    8    9    10
         </Text>
         <Slider
           style={{
-            width: 200,
+            width: 350,
             height: 40,
-            transform: [{ scaleX: 2 }, { scaleY: 2 }],
+            // transform: [{ scaleX: 2 }, { scaleY: 2 }],
           }}
-          minimumValue={0}
+          minimumValue={1}
           maximumValue={10}
           value={5}
           thumbTintColor="#484747"
           minimumTrackTintColor="#478772"
           maximumTrackTintColor="#64BC9F"
+          onValueChange={(value) =>
+            setImage(
+              parseInt(value) % 2 == 0 ? parseInt(value) : parseInt(value) + 1
+            )
+          }
         />
+
         <View
           style={{
             width: width * 0.9,
@@ -67,29 +75,64 @@ export default function Menu({ navigation }) {
             justifyContent: "center",
           }}
         >
+          <>
+          {image == 10 ? 
           <Image
             source={require("../../assets/10.jpg")}
-            style={{ marginRight: 18, width: "15%", height: 60 }}
+            style={{
+              width: "15%",
+              height: 60,
+            }}
           />
+          : <></>}
+          </>
+          <>
+          {image == 8 ? 
           <Image
             source={require("../../assets/8.jpg")}
-            style={{ marginRight: 18, width: "15%", height: 60 }}
+            style={{
+              width: "15%",
+              height: 60,
+            }}
           />
+          : <></>}
+          </>
+          <>
+          {image == 6 ? 
           <Image
-            source={require("../../assets/5.jpg")}
-            style={{ marginRight: 18, width: "15%", height: 60 }}
+            source={require("../../assets/6.jpg")}
+            style={{
+              width: "15%",
+              height: 60,
+            }}
           />
+          : <></>}
+          </>
+          <>
+          {image == 4 ? 
           <Image
-            source={require("../../assets/3.jpg")}
-            style={{ marginRight: 18, width: "15%", height: 60 }}
+            source={require("../../assets/4.jpg")}
+            style={{
+              width: "15%",
+              height: 60,
+            }}
           />
+          : <></>}
+          </>
+          <>
+          {image == 2 ? 
           <Image
-            source={require("../../assets/1.jpg")}
-            style={{ width: "15%", height: 60 }}
+            source={require("../../assets/2.jpg")}
+            style={{
+              width: "15%",
+              height: 60,
+            }}
           />
+          : <></>}
+          </>
         </View>
         <View
-        elevation={5}
+          elevation={5}
           style={{
             alignItems: "center",
             justifyContent: "center",
@@ -101,7 +144,9 @@ export default function Menu({ navigation }) {
             paddingRight: 30,
           }}
         >
-          <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>Mild Pain</Text>
+          <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
+            Mild Pain
+          </Text>
           <Text style={{ color: "#478772" }}>
             Can do most activities with rest periods
           </Text>
@@ -140,7 +185,9 @@ export default function Menu({ navigation }) {
               paddingLeft: 30,
               paddingRight: 30,
             }}
-            onStartShouldSetResponder={() => {alert('Clicked Nausea')}}
+            onStartShouldSetResponder={() => {
+              alert("Clicked Nausea");
+            }}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>Nausea</Text>
           </View>
@@ -157,7 +204,9 @@ export default function Menu({ navigation }) {
               paddingLeft: 30,
               paddingRight: 30,
             }}
-            onStartShouldSetResponder={() => {alert('Clicked Vomiting')}}
+            onStartShouldSetResponder={() => {
+              alert("Clicked Vomiting");
+            }}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>Vomiting</Text>
           </View>
@@ -187,7 +236,9 @@ export default function Menu({ navigation }) {
               paddingLeft: 8,
               paddingRight: 8,
             }}
-            onStartShouldSetResponder={() => {alert('Clicked Hyper Acidity')}}
+            onStartShouldSetResponder={() => {
+              alert("Clicked Hyper Acidity");
+            }}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>
               Hyper Acidity
@@ -206,28 +257,32 @@ export default function Menu({ navigation }) {
               paddingLeft: 30,
               paddingRight: 30,
             }}
-            onStartShouldSetResponder={() => {alert('Bleeding')}}
+            onStartShouldSetResponder={() => {
+              alert("Bleeding");
+            }}
           >
             <Text style={{ fontSize: 20, color: "#484747" }}>Bleeding</Text>
           </View>
         </View>
         <View
-            elevation={5}
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#478772",
-              borderRadius: 40,
-              marginTop: 20,
-              width: 160,
-              padding: 10,
-              paddingLeft: 30,
-              paddingRight: 30,
-            }}
-            onStartShouldSetResponder={() => {alert('Submitted')}}
-          >
-            <Text style={{ fontSize: 20}}>Submit</Text>
-          </View>
+          elevation={5}
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#478772",
+            borderRadius: 40,
+            marginTop: 20,
+            width: 160,
+            padding: 10,
+            paddingLeft: 30,
+            paddingRight: 30,
+          }}
+          onStartShouldSetResponder={() => {
+            alert("Submitted");
+          }}
+        >
+          <Text style={{ fontSize: 20 }}>Submit</Text>
+        </View>
         <StatusBar style="auto" />
       </View>
     </View>
@@ -242,5 +297,16 @@ const styles = StyleSheet.create({
     marginTop: 50,
     padding: 20,
     // justifyContent: "center",
+  },
+  style1: {
+    marginRight: 18,
+    width: "15%",
+    height: 60,
+  },
+  style2: {
+    marginRight: 18,
+    width: "15%",
+    height: 60,
+    opacity: 0.2,
   },
 });
