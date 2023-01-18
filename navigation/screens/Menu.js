@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import Slider from "@react-native-community/slider";
@@ -33,17 +33,18 @@ export default function Menu({ navigation }) {
           source={require("../../assets/logo.png")}
           style={{ width: 70, height: 100 }}
         />
-        <Text style={{ fontSize: 23, margin: 15, marginLeft: -25 }}>
+        <Text style={{ marginTop: 10, fontSize: 15 }}>Day 1</Text>
+        <Text style={{ fontSize: 23, margin: 15}}>
           How is your pain today?
         </Text>
         <Text
-          style={{ fontSize: 13, color: "#484747", marginLeft: -25 }}
+          style={{ fontSize: 13, color: "#484747" }}
           onPress={() => alert('This is the "Home" screen.')}
         >
           Kindly use the pain assesment scale below
         </Text>
         <Text style={{ marginTop: 15, fontSize: 18, color: "#64BC9F" }}>
-          1    2    3    4    5    6    7    8    9    10
+        1    2    3    4    5    6    7    8    9    10
         </Text>
         <Slider
           style={{
@@ -76,59 +77,69 @@ export default function Menu({ navigation }) {
           }}
         >
           <>
-          {image == 10 ? 
-          <Image
-            source={require("../../assets/10.jpg")}
-            style={{
-              width: "15%",
-              height: 60,
-            }}
-          />
-          : <></>}
+            {image == 10 ? (
+              <Image
+                source={require("../../assets/10.jpg")}
+                style={{
+                  width: "15%",
+                  height: 60,
+                }}
+              />
+            ) : (
+              <></>
+            )}
           </>
           <>
-          {image == 8 ? 
-          <Image
-            source={require("../../assets/8.jpg")}
-            style={{
-              width: "15%",
-              height: 60,
-            }}
-          />
-          : <></>}
+            {image == 8 ? (
+              <Image
+                source={require("../../assets/8.jpg")}
+                style={{
+                  width: "15%",
+                  height: 60,
+                }}
+              />
+            ) : (
+              <></>
+            )}
           </>
           <>
-          {image == 6 ? 
-          <Image
-            source={require("../../assets/6.jpg")}
-            style={{
-              width: "15%",
-              height: 60,
-            }}
-          />
-          : <></>}
+            {image == 6 ? (
+              <Image
+                source={require("../../assets/6.jpg")}
+                style={{
+                  width: "15%",
+                  height: 60,
+                }}
+              />
+            ) : (
+              <></>
+            )}
           </>
           <>
-          {image == 4 ? 
-          <Image
-            source={require("../../assets/4.jpg")}
-            style={{
-              width: "15%",
-              height: 60,
-            }}
-          />
-          : <></>}
+            {image == 4 ? (
+              <Image
+                source={require("../../assets/4.jpg")}
+                style={{
+                  width: "15%",
+                  height: 60,
+                }}
+              />
+            ) : (
+              <></>
+            )}
           </>
           <>
-          {image == 2 ? 
-          <Image
-            source={require("../../assets/2.jpg")}
-            style={{
-              width: "15%",
-              height: 60,
-            }}
-          />
-          : <></>}
+            {image == 2 ? (
+              <Image
+                source={require("../../assets/2.jpg")}
+                style={{
+                  width: "15%",
+                  height: 60,
+                }}
+              />
+            ) : (
+              <></>
+            )}
           </>
         </View>
         <View
@@ -144,12 +155,76 @@ export default function Menu({ navigation }) {
             paddingRight: 30,
           }}
         >
-          <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
-            Mild Pain
-          </Text>
-          <Text style={{ color: "#478772" }}>
-            Can do most activities with rest periods
-          </Text>
+          <>
+            {image == 2 ? (
+              <>
+                <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
+                  No Pain
+                </Text>
+                <Text style={{ color: "#478772" }}>
+                  Can do most activities with rest periods
+                </Text>
+              </>
+            ) : (
+              <></>
+            )}
+          </>
+          <>
+            {image == 4 ? (
+              <>
+                <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
+                  Mild Pain
+                </Text>
+                <Text style={{ color: "#478772" }}>
+                  Can do most activities with rest periods
+                </Text>
+              </>
+            ) : (
+              <></>
+            )}
+          </>
+          <>
+            {image == 6 ? (
+              <>
+                <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
+                  Moderate Pain
+                </Text>
+                <Text style={{ color: "#478772" }}>
+                  Can do most activities with rest periods
+                </Text>
+              </>
+            ) : (
+              <></>
+            )}
+          </>
+          <>
+            {image == 8 ? (
+              <>
+                <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
+                  Severe Pain
+                </Text>
+                <Text style={{ color: "#478772" }}>
+                  Can do most activities with rest periods
+                </Text>
+              </>
+            ) : (
+              <></>
+            )}
+          </>
+          <>
+            {image == 10 ? (
+              <>
+                <Text style={{ fontSize: 20, fontFamily: "PTSans-Bold" }}>
+                  Very Severe Pain
+                </Text>
+                <Text style={{ color: "#478772" }}>
+                  Can do most activities with rest periods
+                </Text>
+              </>
+            ) : (
+              <></>
+            )}
+          </>
         </View>
         <Text
           style={{
